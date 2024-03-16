@@ -7,9 +7,6 @@ import 'package:sami_version/cubit/counter_state.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  int teamApoints = 0;
-  int teamBpoints = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +18,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: BlocConsumer<CounterCubit, CounterIncrementState>(
-        listener: (context, state) {
-          if (state is CounterAIncrementState) {
-            teamApoints = BlocProvider.of<CounterCubit>(context).teamAPoints;
-          } else {
-            teamBpoints = BlocProvider.of<CounterCubit>(context).teamBPoints;
-          }
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -93,7 +84,7 @@ class HomePage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  minimumSize: Size(150, 50),
+                  minimumSize: const Size(150, 50),
                 ),
                 child: const Text(
                   'Reset',

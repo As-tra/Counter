@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sami_version/cubit/counter_state.dart';
 
 class CounterCubit extends Cubit<CounterIncrementState> {
-  CounterCubit(super.initialState);
+  CounterCubit() : super(CounterAIncrementState());
 
   int teamAPoints = 0;
   int teamBPoints = 0;
