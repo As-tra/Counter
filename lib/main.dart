@@ -10,7 +10,7 @@ class BasketBallCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CounterCubit(CounterBIncrementState()),
+      create: (context) => CounterCubit(CounterAIncrementState()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomePage(),

@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(fontSize: 32),
                         ),
                         Text(
-                          '$teamApoints',
+                          '${BlocProvider.of<CounterCubit>(context).teamAPoints}',
                           style: const TextStyle(fontSize: 150),
                         ),
                         const CustomButton(points: 1, team: 'A'),
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(fontSize: 32),
                         ),
                         Text(
-                          '$teamBpoints',
+                          '${BlocProvider.of<CounterCubit>(context).teamBPoints}',
                           style: const TextStyle(fontSize: 150),
                         ),
                         const CustomButton(points: 1, team: 'B'),
@@ -83,14 +83,10 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Reset',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
+                onPressed: () {
+                  BlocProvider.of<CounterCubit>(context).teamAPoints = 0;
+                  BlocProvider.of<CounterCubit>(context).teamBPoints = 0;
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
@@ -98,6 +94,13 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   minimumSize: Size(150, 50),
+                ),
+                child: const Text(
+                  'Reset',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ],
